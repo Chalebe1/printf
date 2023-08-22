@@ -13,13 +13,9 @@ int _printf(const char *format, ...)
 	int count = 0;
 	char c;
 	const char *s;
-
 	va_list list;
+
 	va_start(list, format);
-
-	if(format == NULL)
-		return (-1);
-
 	while (*format != '\0')
 	{
 		if (*format != '%')
@@ -49,8 +45,6 @@ int _printf(const char *format, ...)
 				case '%':
 					putchar('%');
 					count++;
-					break;
-				default:
 					break;
 			}
 		}
