@@ -10,39 +10,40 @@
 
 int _printf(const char *format, ...)
 {
-	int count = 0, i;
+	int count = 0;
 
-	va_list va;
+	va_list list;
 
-	va_start(va, format);
+	va_start(list, format);
 
-	for (i = 0; format[i] != '\0'; )
+	if(format ==NULL)
+		return (-1);
+
+	while (*format != '\0')
 	{
-		if (format[i] != '%')
+		if (*format != '%')
 		{
-			count += _putchar(format[i]);
-			i++;
+			write(1, format, 1);
+			count++;
 		}
-		else if (format[i] == '%' && format[i + 1] != ' ')
+		else if (*format == '%' && *format++ != ' ')
 		{
-			switch (format[i + 1])
+			switch (format++)
 			{
 				case 'c':
-					count += _putchar(va_arg(data, int));
+					int num = va_arg(list, int);
+					write(1, num, strlen(num));
 					break;
 				case 's':
-					count += print_string(va_arg(data, char *));
 					break;
 				case '%':
-					count += _putchar('%');
 					break;
 				case 'b':
-					count += print_binary(va_arg(data, int));
 					break;
 				default:
 					break;
 			}
-			i += 2;
+			continue;
 		}
 	}
 	return (count);
