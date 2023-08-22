@@ -32,19 +32,29 @@ int _printf(const char *format, ...)
 			{
 				case 'c':
 					int num = va_arg(list, int);
-					write(1, num, strlen(num));
+					write(1, &num, 1);
+					count++;
 					break;
 				case 's':
+					char *str = va_arg(list, char*);
+					int str_len = 0;
+
+					while (str[str_len] != '\0')
+						str_len++;
+
+					write(1, str, str_len);
+					count += str_len;
 					break;
 				case '%':
-					break;
-				case 'b':
+					write(1, format, 1);
+					count++;
 					break;
 				default:
 					break;
 			}
-			continue;
 		}
+		format++;
 	}
+	va_end(list);
 	return (count);
 }
