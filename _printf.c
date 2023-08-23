@@ -20,7 +20,7 @@ int _printf(const char *format, ...)
 	{
 		if (*format != '%')
 		{
-			putchar(*format);
+			write(1,format,1);
 			count++;
 		}
 		else
@@ -30,20 +30,20 @@ int _printf(const char *format, ...)
 			{
 				case 'c':
 					c = va_arg(list, int);
-					putchar(c);
+					write(1,&c,1);
 					count++;
 					break;
 				case 's':
 					s = va_arg(list, const char *);
 					while (*s != '\0')
 					{
-						putchar(*s);
+						write(1,s,1);
 						s++;
 						count++;
 					}
 					break;
 				case '%':
-					putchar('%');
+					write(1,'%',1);
 					count++;
 					break;
 			}
