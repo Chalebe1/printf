@@ -1,4 +1,4 @@
-#include "main.h"
+:ww::ww: "main.h"
 
 /**
  * _printf - produces output according to a format
@@ -52,4 +52,5 @@ int _printf(const char *format, ...)
 	}
 	va_end(list);
 	return (count);
-}
+:wq
+
