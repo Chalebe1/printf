@@ -1,6 +1,4 @@
-#include <stdio.h>
-#include <stdarg.h>
-#include <unistd.h> // Include for the write function
+#include "main.h"
 
 /**
  * _printf - Custom printf function that supports %c, %s, and %% specifiers
