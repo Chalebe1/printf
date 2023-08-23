@@ -1,11 +1,15 @@
-#include "main.h"
+#include <stdio.h>
+#include <stdarg.h>
+#include <unistd.h> // Include for the write function
 
 void print_buffer(char buffer[], int *buff_ind);
 
 /**
- * _printf - Printf function
- * @format: format.
- * Return: Printed chars.
+ * _printf - Custom printf function that supports %c, %s, and %% specifiers
+ * @format: The format string containing conversion specifiers
+ * @...: Arguments corresponding to the conversion specifiers
+ *
+ * Return: The number of characters printed (excluding the null byte)
  */
 int _printf(const char *format, ...)
 {
