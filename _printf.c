@@ -1,6 +1,4 @@
-#include <stdio.h>
-#include <stdarg.h>
-#include <unistd.h> // Include for the write function
+#include "main.h"
 
 void print_buffer(char buffer[], int *buff_ind);
 
