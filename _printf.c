@@ -3,11 +3,9 @@
 void print_buffer(char buffer[], int *buff_ind);
 
 /**
- * _printf - Custom printf function that supports %c, %s, and %% specifiers
- * @format: The format string containing conversion specifiers
- * @...: Arguments corresponding to the conversion specifiers
- *
- * Return: The number of characters printed (excluding the null byte)
+ * _printf - Printf function
+ * @format: format.
+ * Return: Printed chars.
  */
 int _printf(const char *format, ...)
 {
